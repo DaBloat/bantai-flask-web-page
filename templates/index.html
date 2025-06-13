@@ -7,11 +7,9 @@
 </head>
 <body>
     <nav class="sidebar">
-        <header>
-            <div class="logo">
-                <a href="#">BANTAI</a>
-            </div>
-        </header>
+        <div class = 'sidebar-head'>
+            <img class="logo" src="{{ url_for('static', filename='assets/logo.png') }}">
+        </div>
         <div class="menu">
             <ul>
                 <li>
@@ -35,17 +33,65 @@
                     </a>
                 </li>
                 <li>
-                    <a>
+                    <a href="#">
                         <i class="fa-solid fa-gear"></i>
                     </a>
                 </li>
                 <li>
                     <a href="#">
-                        <i class="fa-solid fa-circle-info"></i>
+                        <i class="fa-solid fa-circle-question"></i>
                     </a>
                 </li>
             </ul>
         </div>
-        </nav>
+        <div class="sidebar-footer">
+            <small>&copy; 2025 Carabao Tech</small>
+        </div>
+    </nav>
+    <div class = 'homepage'>
+        <div class = 'greetings'>
+            <h1>{{ stat.greet }}, {{ stat.user }}!</h1>
+        </div>
+        <div class="container">
+            <div class = 'left'>
+                <div class="card-container">
+                    <div class="card">
+                        <i class="fa-solid fa-user"></i>
+                        <h2>10</h2>
+                        <h3>No. of Customers</h3>
+                        <p>Today</p>
+                    </div>
+                    <div class="card">
+                        <i class="fa-solid fa-scale-balanced"></i>
+                        <h2>3</h2>
+                        <h3>No. of Violations</h3>
+                        <p>Critical</p>
+                    </div>
+                </div>
+                <div class="graph-container">
+                    <div class="graph">
+                        <h2>Compliance Overview</h2>
+                    </div>
+                </div>
+            </div>
+            <div class = 'mid'>
+                <div class = 'metric-cam-container'>
+                    <div class="metric">
+                        <h2>96%</h2>
+                    </div>
+                    <div class="cam">
+                        <h2>CCTV Live Feed</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class='llm-container'>
+                    <div class="llm-chat">
+                        <h2>Hi Im Aira!</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
