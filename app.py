@@ -8,7 +8,11 @@ def homepage():
     greet = {'AM':'Good Morning', 'PM':'Good Afternoon'}
     stats = {
         'greet': greet[datetime.now().strftime("%p")],
-        'user': 'Admin'
+        'user': 'Admin',
+        'customers': 10,
+        'customer_trend': 'up',
+        'violations': 5,
+        'violation_trend': 'down'
     }
     return render_template('index.html', stat=stats)
 

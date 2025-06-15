@@ -3,6 +3,7 @@
 <head>
     <title>BANTAI</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel='stylesheet' href="https://www.nerdfonts.com/assets/css/webfont.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
@@ -57,13 +58,31 @@
                 <div class="card-container">
                     <div class="card">
                         <i class="fa-solid fa-user"></i>
-                        <h2>10</h2>
+                        <span class="trend {{ stat.customer_trend }}">
+                            {% if stat.customer_trend == 'up' %}
+                                <i class="nf nf-cod-triangle_up"></i>
+                            {% elif stat.customer_trend == 'down' %}
+                                <i class="nf nf-cod-triangle_down"></i>
+                            {% else %}
+                                <i class="nf nf-fa-minus"></i>
+                            {% endif %}
+                        </span>
+                        <h2>{{ stat.customers }}</h2>
                         <h3>No. of Customers</h3>
                         <p>Today</p>
                     </div>
                     <div class="card">
                         <i class="fa-solid fa-scale-balanced"></i>
-                        <h2>3</h2>
+                        <span class="trend {{ stat.violation_trend }}">
+                            {% if stat.violation_trend == 'up' %}
+                                <i class="nf nf-cod-triangle_up"></i>
+                            {% elif stat.violation_trend == 'down' %}
+                                <i class="nf nf-cod-triangle_down"></i>
+                            {% else %}
+                                <i class="nf nf-fa-minus"></i>
+                            {% endif %}
+                        </span>
+                        <h2>{{ stat.violations }}</h2>
                         <h3>No. of Violations</h3>
                         <p>Critical</p>
                     </div>

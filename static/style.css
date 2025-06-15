@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 
+* {
+    font-family: "Lato", sans-serif;
+}
+
 body {
     padding: 0px;
     margin: 0px;
@@ -74,7 +78,6 @@ body {
 }
 
 .greetings {
-    font-family: "Lato", sans-serif;
     font-size: 25px;
     margin: 15px 50px;
 }
@@ -83,19 +86,6 @@ body {
     display: flex;
     margin: 0px 50px;
     flex-wrap: wrap;
-    background-color: red;
-}
-
-.left {
-    background-color: blue;
-}
-
-.mid {
-    background-color: aqua;
-}
-
-.right {
-    background-color: rebeccapurple;
 }
 
 .card-container, .graph-container, .metric-cam-container, .llm-container{
@@ -110,29 +100,92 @@ body {
 
 .card {
     background-color: #F2FEFC;
-    width: 225px;
+    width: 200px;
     margin: 15px;
     padding: 20px;
+    height: 175px;
     text-align: center;
+    border-radius:25px;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.75);
+    position: relative;
+}
+
+.card i {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+}
+
+.card h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 95px;
+}
+
+.trend {
+    position: absolute;
+    right: 10px;
+    bottom: 125px;
+    font-size: 35px;
+}
+
+.trend.up {
+    color: green;
+}
+
+.trend.down {
+    color: red;
+}
+
+.trend.neutral {
+    color: gray;
+}
+
+.card h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 25px;
+}
+
+.card p {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
 }
 
 .graph{
     width: 100%;
+    height: 550px;
     background-color: #F2FEFC;
     margin: 15px;
     padding: 20px;
+    border-radius:25px;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.75);
 }
 
 .metric, .cam{
-    width: 375px;
+    width: 450px;rebeccapurple;
     background-color: #F2FEFC;
     margin: 15px;
     padding: 20px;
+    border-radius:25px;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.75);
+}
+
+.metric {
+    height: 375px;
+}
+
+.cam {
+    height: 350px;
 }
 
 .llm-chat {
-    width: 340px;
+    width: 315px;
+    height: 797px;
     background-color: #F2FEFC;
     margin: 15px;
     padding: 20px;
+    border-radius:25px;
+    box-shadow: 0 8px 8px rgba(0,0,0,0.75);
 }
