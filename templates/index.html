@@ -89,13 +89,14 @@
                 </div>
                 <div class="graph-container">
                     <div class="graph">
-                        <h2>Compliance Overview</h2>
+                        <h2>Safety Compliance Overview</h2>
                     </div>
                 </div>
             </div>
             <div class = 'mid'>
                 <div class = 'metric-cam-container'>
                     <div class="cam">
+                        <div class="menu-icon"><i class="fa-solid fa-user"></i></div>
                         <div class="cam-head">
                             <h2>CCTV Live Feed</h2>
                             <select id="cam-view" class="cam-view">
@@ -133,6 +134,25 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener("click", function (e) {
+        if (e.target.classList.contains("cctv")) {
+            e.target.classList.toggle("expanded");
+        }
+        });
+    </script>
+    <script>
+
+        // Allows 
+        var input = document.getElementById("user-input");
+        input.addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("user-send").click();
+        }
+        });
+    </script>
     <script>
         document.addEventListener("change", async function (e) {
             if (e.target && e.target.id === "video-upload") {
