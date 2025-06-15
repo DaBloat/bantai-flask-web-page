@@ -110,7 +110,7 @@ body {
     position: relative;
 }
 
-.card i {
+.menu-icon {
     position: absolute;
     top: 12px;
     right: 12px;
@@ -164,7 +164,7 @@ body {
 }
 
 .metric, .cam{
-    width: 450px;rebeccapurple;
+    width: 450px;
     background-color: #F2FEFC;
     margin: 15px;
     padding: 20px;
@@ -181,6 +181,7 @@ body {
 }
 
 .llm-chat {
+    position: relative;
     width: 315px;
     height: 797px;
     background-color: #F2FEFC;
@@ -188,4 +189,105 @@ body {
     padding: 20px;
     border-radius:25px;
     box-shadow: 0 8px 8px rgba(0,0,0,0.75);
+}
+
+.chat-logs {
+    background-color: #F2FEFC;
+    border: #DBE8F4 solid 2px;
+    border-radius: 10px;
+    height: 665px;
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.input-area {
+    position: relative;
+    margin: 5px 0;
+}
+
+.input-area input[type="text"] {
+    width: 100%;
+    height: 50px;
+    border: 2px solid #DBE8F4;
+    border-radius: 10px;
+}
+
+.input-area button {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border: none;
+    right: -5px;
+    top: 8px;
+    color: #2D3345;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #DBE8F4;
+}
+
+.input-area button i {
+    position: flex;
+
+}
+
+.input-area button:hover {
+    background-color: #2D3345;
+    color: #DBE8F4;
+}
+
+.bubble {
+    padding: 10px 10px;
+    margin: 0px 5px;
+    font-size: 12px;
+    border-radius: 15px;
+    max-width: 75%;
+    word-wrap: break-word;
+}
+
+.user-bubble {
+    background-color: #D4F1F4;
+    text-align: right;
+    margin-left: auto;
+}
+
+.ai-bubble {
+    background-color: #BFD7ED;
+    text-align: left;
+    margin-right: auto;
+}
+
+.message-row {
+    display: flex;
+    align-items: flex-end;
+    margin: 10px;
+}
+
+.user-row {
+    flex-direction: row-reverse;
+    text-align: right;
+}
+
+.ai-row {
+    flex-direction: row;
+    text-align: left;
+}
+
+.avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.cam-head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cam-view {
+    height: 25px;
+    margin: 20px 0;
+    border: #2D3345 2px solid;
+    border-radius: 12px;
 }

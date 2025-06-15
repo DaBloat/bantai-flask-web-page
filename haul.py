@@ -1,29 +1,3 @@
-from flask import Flask, render_template, request, jsonify
-import requests
-from datetime import datetime
-from transformers import AutoTokenizer
-
-app = Flask(__name__)
-
-HF_API_URL = f"https://api-inference.huggingface.co/models/{LLM_MODEL}"
-HEADERS = {"Authorization": f"Bearer {API_TOKEN}"}
-
-tokenizer = AutoTokenizer.from_pretrained(LLM_MODEL)
-
-@app.route('/',methods=['GET'])
-def homepage():
-    greet = {'AM':'Good Morning', 'PM':'Good Afternoon'}
-    stats = {
-        'greet': greet[datetime.now().strftime("%p")],
-        'user': 'Admin',
-        'customers': 10,
-        'customer_trend': 'up',
-        'violations': 5,
-        'violation_trend': 'down'
-    }
-    return render_template('index.html', stat=stats)
-
-@app.route('/chat',methods=["POST"])
 def chat():
     user_input = request.get_json()["message"]
     system_prompt = "You are an AI assistant specialized in Occupational Safety and Health (OSH) laws in the Philippines. Provide accurate, concise, and helpful information based on the Philippine OSH standards (RA 11058, DOLE D.O. 198-18)."
@@ -69,6 +43,8 @@ def chat():
         }
     })
 
-
-if __name__ == '__main__':
-    app.run(debug=True)
+"""
+def chat():
+    user_input = request.get_json()["message"]
+    return jsonify({"reply": 'LOL BRO TESTING!'})
+"""

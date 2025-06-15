@@ -57,7 +57,7 @@
             <div class = 'left'>
                 <div class="card-container">
                     <div class="card">
-                        <i class="fa-solid fa-user"></i>
+                        <div class="menu-icon"><i class="fa-solid fa-user"></i></div>
                         <span class="trend {{ stat.customer_trend }}">
                             {% if stat.customer_trend == 'up' %}
                                 <i class="nf nf-cod-triangle_up"></i>
@@ -72,7 +72,7 @@
                         <p>Today</p>
                     </div>
                     <div class="card">
-                        <i class="fa-solid fa-scale-balanced"></i>
+                        <div class="menu-icon"><i class="fa-solid fa-scale-balanced"></i></div>
                         <span class="trend {{ stat.violation_trend }}">
                             {% if stat.violation_trend == 'up' %}
                                 <i class="nf nf-cod-triangle_up"></i>
@@ -95,22 +95,96 @@
             </div>
             <div class = 'mid'>
                 <div class = 'metric-cam-container'>
+                    <div class="cam">
+                        <div class="cam-head">
+                            <h2>CCTV Live Feed</h2>
+                            <select class="cam-view">
+                                <option>Worker's Camera</option>
+                                <option>Customer's Camera</option>
+                            </select>
+                        </div>
+                        <div class="cam-videos">
+                                
+                        </div>
+                    </div>
                     <div class="metric">
                         <h2>96%</h2>
-                    </div>
-                    <div class="cam">
-                        <h2>CCTV Live Feed</h2>
                     </div>
                 </div>
             </div>
             <div class="right">
                 <div class='llm-container'>
                     <div class="llm-chat">
-                        <h2>Hi Im Aira!</h2>
+                        <div class="menu-icon"><i class="fa-solid fa-book"></i></div>
+                        <h2>Chat with Aira!</h2>
+                        <div id="chat-logs" class="chat-logs">
+                            <div class="message-row ai-row">
+                                <img class="avatar" src="{{ url_for('static', filename='assets/ai.jpg') }}" />
+                                <div class="bubble ai-bubble">Hi I'm Aira, How can I help You today?</div>
+                            </div>
+                        </div>
+                        <div class="input-area">
+                            <input id='user-input' class="input-area" type="text" placeholder="Questions about Philippine OSH laws?">
+                            <button id='user-send' onclick="sendMessage()"><i class="fa fa-paper-plane"></i></button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        // Allows 
+        var input = document.getElementById("user-input");
+        input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            document.getElementById("user-send").click();
+        }
+        });
+
+        //
+        async function sendMessage() {
+            const input = document.getElementById("user-input");
+            const message = input.value.trim();
+            if (!message) return;
+
+
+            const userBubble = `<div class="message-row user-row">
+                                    <img class="avatar" src="{{ url_for('static', filename='assets/user.jpg') }}" />
+                                    <div class="bubble user-bubble">${message}</div>
+                                </div>`;
+            document.getElementById("chat-logs").innerHTML += userBubble;
+            input.value = "";
+
+            const typingId = "typing-indicator";
+            const typingBubble = `
+                <div class="message-row ai-row" id="${typingId}">
+                    <img class="avatar" src="{{ url_for('static', filename='assets/ai.jpg') }}" />
+                    <div class="bubble ai-bubble loading">Aira is typing<span class="dot-1">.</span><span class="dot-2">.</span><span class="dot-3">.</span></div>
+                </div>`;
+            document.getElementById("chat-logs").innerHTML += typingBubble;
+
+            const res = await fetch("/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message })
+            });
+            const data = await res.json();
+
+            const typingElem = document.getElementById(typingId);
+            if (typingElem) typingElem.remove();
+
+            const aiBubble = `
+                <div class="message-row ai-row">
+                    <img class="avatar" src="{{ url_for('static', filename='assets/ai.jpg') }}" />
+                    <div class="bubble ai-bubble">${data.reply}</div>
+                </div>`;
+            document.getElementById("chat-logs").innerHTML += aiBubble;
+
+            // Scroll to bottom
+            const chatBox = document.getElementById("chat-logs");
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
 </body>
 </html>
