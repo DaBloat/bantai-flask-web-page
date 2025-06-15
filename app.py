@@ -4,6 +4,7 @@ from datetime import datetime
 from transformers import AutoTokenizer
 
 app = Flask(__name__)
+LLM_MODEL = "HuggingFaceH4/zephyr-7b-beta"
 
 HF_API_URL = f"https://api-inference.huggingface.co/models/{LLM_MODEL}"
 HEADERS = {"Authorization": f"Bearer {API_TOKEN}"}
