@@ -84,7 +84,7 @@ body {
 
 .container {
     display: flex;
-    margin: 0px 50px;
+    margin: 100px 50px;
     flex-wrap: wrap;
 }
 
@@ -100,7 +100,7 @@ body {
 
 .card {
     background-color: #F2FEFC;
-    width: 200px;
+    width: 230px;
     margin: 15px;
     padding: 20px;
     height: 175px;
@@ -155,7 +155,7 @@ body {
 
 .graph{
     width: 100%;
-    height: 550px;
+    height: 400px;
     background-color: #F2FEFC;
     margin: 15px;
     padding: 20px;
@@ -173,7 +173,16 @@ body {
 }
 
 .metric {
-    height: 400px;
+    position: relative;
+    height: 250px;
+}
+
+#violationChart {
+  position: absolute;
+  top: -23px;
+  width: 70% !important;
+  height: auto !important;
+  margin: 25px;
 }
 
 .cam {
@@ -184,7 +193,7 @@ body {
 .llm-chat {
     position: relative;
     width: 315px;
-    height: 797px;
+    height: 648px;
     background-color: #F2FEFC;
     margin: 15px;
     padding: 20px;
@@ -196,7 +205,8 @@ body {
     background-color: #F2FEFC;
     border: #DBE8F4 solid 2px;
     border-radius: 10px;
-    height: 665px;
+    width: 100%;
+    height: 515px;
     margin: 0;
     padding: 0;
     overflow-y: auto;
